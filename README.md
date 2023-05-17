@@ -1,7 +1,7 @@
 # CS556-Final-Project
 # Housing Price Prediction
 
-a.	Dataset Description: The data pertains to the houses found in each California district and some summary statistics about them based on the 1990 census data. It contains one instance per district block group. A block group is the smallest geographical unit for which the U.S. Census Bureau publishes sample data (a block group typically has a population of 600 to 3,000 people). 
+## a.	Dataset Description: The data pertains to the houses found in each California district and some summary statistics about them based on the 1990 census data. It contains one instance per district block group. A block group is the smallest geographical unit for which the U.S. Census Bureau publishes sample data (a block group typically has a population of 600 to 3,000 people). 
 The goal of this task is to design a regression model to predict the median house value conditioned upon a set of input attributes corresponding to a particular California district block.
 The attributes in the dataset are as follows; their names are self-explanatory:
 
@@ -27,7 +27,7 @@ x.	median_house_value.(continuous): Median house value within a district block (
 
 Our target variable will be median_house_value.  Use the rest of the fields mentioned above to predict the median_house_value. 
 
-b.	Data Loading / Preprocessing:
+## b.	Data Loading / Preprocessing:
 i.	Loading:
 1.	Load the California housing dataset using pandas.read_csv() function and store it in the variable (i.e., a pandas dataframe) named `df’.
 
@@ -50,18 +50,18 @@ median_income
 
 5. Create a data frame X of features (by dropping the column ‘median_house_value’’ from the original data frame) using the pandas.DataFrame.drop() function. Create a Series object of targets Y (by only considering the ‘median_house_value’ column from the original data frame (Do NOT use the ‘corr_df’ data frame in this step. Use the data frame which was obtained as a result of step b.i.3 above).
 	
-ii.	Data Visualization:
+## ii.	Data Visualization:
 1.	Use pandas.DataFrame.hist(bins = 50) function for visualizing the variation on the columns housing_median_age, total_rooms, total_bedrooms, population, household, median_income and median_house_value. Plot each histogram as a separate subplot.
 
 2.	Use pandas.dataframe.describe() function to find the mean, median and standard deviations for each feature and report in the jupyter notebook.
                  
 3.	Use pandas.get_dummies to convert categorical variables into dummy /one-hot encoding. In this case the categorical column is ocean_proximity
 
-iii.	Data Splitting:
+## iii.	Data Splitting:
 1.	Split data into training and test sets using the sklearn train_test_split() function. Perform 70-30 distribution i.e. 70% training and 30% testing. The result of your data split should yield 4 separate data frames X_train, X_test, y_train, y_test. (respectively, the training features, testing features, training targets and testing target). 
 
 	
-iv.	Data Scaling:
+## iv.	Data Scaling:
 1.	Use the StandardScaler() to instantiate the standard scaler class. Note: You will need two separate scaler objects, one to scale the features, another to scale the target values.
 
 2.	For each scaler, employ the `fit_transform()’ function (only on the training  features, training targets) of the scaler to retrieve the new (scaled) version of the data. Store them in X_train, and y_train again.
@@ -71,7 +71,7 @@ Henceforth, X_train, y_train, X_test, y_test will refer to the scaled data unles
 
 4.	Use pandas.DataFrame.hist(bins = 50) function for visualizing the variation of numerical attributes housing_median_age, total_rooms, total_bedrooms, population, household, median_income and median_house_value for the X_train and y_train dataset (similar to step b.ii.1 above). Once again, plot each histogram as a separate subplot.
 
-c.	Modelling:
+## c.	Modelling:
 i.	Employ Linear Regression from sklearn.linear_model, and instantiate the model.
 
 ii.	Once instantiated, `fit()` the model using the scaled X_train, y_train data. 
@@ -85,12 +85,9 @@ v.	Perform PCA on the features (X_train) and set n_component as 2.
 
 2.	Calculate the total percentage of variance captured by the 2 PCA components using pca.explained_variance_ratio_. Also, report the strength of each PCA component using pca.singular_values_.
 
-d.	Evaluation:
+## d.	Evaluation:
 i.	Plot a scatter plot using matplotlib.pyplot.scatter function. Plot the predicted median house values on the y-axis vs the actual median house values on the x-axis.
 
 ii.	Calculate MAPE, RMSE  and R2 for the model and report them in the following table. 
 Hint for RMSE set the squared parameter to False.
 
-Model	MAPE	RMSE	R2
-Linear Regression			
-iii.	
